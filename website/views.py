@@ -23,6 +23,20 @@ def home():
 
     return render_template("home.html", user=current_user)
 
+@views.route('/update', methods=['GET', 'POST']) #/update working
+@login_required
+def update():
+    if request.method == 'POST':
+        note = request.form.get('note')
+
+        if len(note) < 1:
+            flash('This text will be changed later', category='error') #change in flash text working
+        else:
+            new_note = Note(data=note, user_id=current_user.id)
+            db.session.add(new_note)
+            db.session.commit()
+            flash('Note added!', category='success')
+    return render_template("update.html", user=current_user)
 
 @views.route('/delete-note', methods=['POST'])
 def delete_note():
