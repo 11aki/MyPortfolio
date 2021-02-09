@@ -11,7 +11,7 @@
 
     <!-- heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-      <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+      <h1 class="h3 mb-0 text-gray-800">Your Portfolio</h1>
     </div>
 <!--
 <ul class="list-group list-group-flush" id="notes">
@@ -33,13 +33,55 @@
 </form>
 -->
 
-<form class="form-inline" method="POST">
-  <div class="form-group mb-2">
-    <input type="text" readonly class="form-control-plaintext" id="staticEmail2" value="Enter your asset" name = "notasde">
+Enter your asset
+<div class="dropdown">
+  <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  Add your stock</button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+    <button class="dropdown-item" type="button">Stock</button>
+    <button class="dropdown-item" type="button">Index</button>
+    <button class="dropdown-item" type="button">Crypto</button>
   </div>
-  <div class="form-group mx-sm-3 mb-2">
-    <input type="text" class="form-control" id="searchAsset" placeholder="BTC, ETH" name = "note">
-  </div>
-  <button type="submit" class="btn btn-primary">Search</button>
-</form>
+</div>
+
+<br></br>
+
+<!-- table -->
+<table class="table table-sm">
+  <tr class="bg-primary">
+  <thead>
+    <tr>
+      <tr class="bg-primary"></tr>
+      <th scope="col">#</th>
+      <th scope="col">Asset type</th>
+      <th scope="col">Code</th>
+      <th scope="col">Avg Price (AUD)</th>
+      <th scope="col">Profit/Loss</th>
+      <th scope="col">Units</th>
+      <th scope="col">Price (AUD)</th>
+      <th scope="col">Value</th>
+      <th scope="col">Weight (%)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Mark</td>
+      <td>Otto</td>
+      <td>@mdo</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Jacob</td>
+      <td>Thornton</td>
+      <td>@fat</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td colspan="2">Larry the Bird</td>
+      <td>@twitter</td>
+    </tr>
+  </tbody>
+</table>
+
 {% endblock %}
