@@ -18,3 +18,7 @@ class User(db.Model, UserMixin):
     notes = db.relationship('Note')
 
 
+class portf(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    asset = db.Column(db.String(10000))
+    typeofas = db.Column(db.String(1000)) 
