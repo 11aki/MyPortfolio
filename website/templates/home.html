@@ -44,50 +44,72 @@ Enter your asset
     <button class="dropdown-item" type="button">Crypto</button>
     
   </div>
-  
 </div>
 
-<div class="row">
 
+  <br>
 
-<br></br>
 <!-- table -->
-<table class="table table-sm">
-  <tr class="bg-primary">
-  <thead>
-    <tr>
-      <tr class="bg-primary"></tr>
-      <th scope="col">#</th>
-      <th scope="col">Asset type</th>
-      <th scope="col">Code</th>
-      <th scope="col">Avg Price (AUD)</th>
-      <th scope="col">Profit/Loss</th>
-      <th scope="col">Units</th>
-      <th scope="col">Price (AUD)</th>
-      <th scope="col">Value</th>
-      <th scope="col">Weight (%)</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td colspan="2">Larry the Bird</td>
-      <td>@twitter</td>
-    </tr>
-  </tbody>
-</table>
+<div class="list-group-item" id="grandparent">
+    <div id="expander" data-target="#grandparentContent" data-toggle="collapse" data-group-id="grandparent" data-role="expander">
+      <table class="table">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Stock Type</th>
+            <th>Stock Name</th>
+            <th>Avg Price (AUD)</th>
+            <th>Qty</th>
+            <th>Total (AUD)</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr data-toggle="collapse" data-target=".child1">
+            <td><div>&gt;</div></td>
+            <td>Stock</td>
+            <td>Stock1</td>
+            <td>10</td>
+            <td>10</td>
+            <td>100</td>
+          </tr>
+
+          <tr class="collapse child1">
+            <td></td>
+            <td>Stock</td>
+            <td>Stock1</td>
+            <td>10</td>
+            <td>10</td>
+            <td>100</td>
+          </tr>
+          
+
+                
+          
+          <tr data-toggle="collapse" data-target=".child2">
+            <td><div>&gt;</div></td>
+            <td>Crypto</td>
+            <td>BTC</td>
+            <td>10</td>
+            <td>10</td>
+            <td>100</td>
+          </tr>
+
+          <tr class="collapse child2">
+            <td></td>
+            <td>Crypto</td>
+            <td>BTC</td>
+            <td>10</td>
+            <td>10</td>
+            <td>100</td>
+          </tr>          
+        </tbody>
+      </table>
+    </div>
+</div>
+
+
+<br>
 
 <div class="row">
 
@@ -111,8 +133,8 @@ Enter your asset
                       <div class="dropdown-divider"></div>
                       <a class="dropdown-item" href="#">Something else here</a>
                   </div>
-              </div>
-          </div>
+                </div>
+            </div>
           <!-- Card Body -->
           <div class="card-body">
               <div class="chart-area">
@@ -121,6 +143,7 @@ Enter your asset
           </div>
       </div>
   </div>
+
 
 <!-- Pie Chart -->
 <div class="col-xl-4 col-lg-5">
@@ -164,5 +187,25 @@ Enter your asset
   </div>
 </div>
 </div>
+
+
+<!-- Bootstrap core JavaScript-->
+<script src="static/vendor/jquery/jquery.min.js"></script>
+<script src="static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<!-- Core plugin JavaScript-->
+<script src="static/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+<!-- Custom scripts for all pages-->
+<script src="static/js/sb-admin-2.min.js"></script>
+
+<!-- Page level plugins -->
+<script src="static/vendor/chart.js/Chart.min.js"></script>
+
+<!-- Page level custom scripts -->
+<script src="static/js/demo/chart-area-demo.js"></script>
+<script src="static/js/demo/chart-pie-demo.js"></script>
+
+
 
 {% endblock %}
