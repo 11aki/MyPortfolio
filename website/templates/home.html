@@ -1,53 +1,95 @@
 {% extends "base.html" %} {% block title %}Home{% endblock %} {% block content
 %}
-<<<<<<< Updated upstream
-  <h1 align="center">Notes</h1>
-  <ul class="list-group list-group-flush" id="notes">
-    {% for note in user.notes %}
-    <li class="list-group-item">
-      {{ note.data }}
-      <button type="button" class="close" onClick="deleteNote({{note.id}})">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </li>
-    {% endfor %}
-  </ul>
+    <br/>
+    <h1 align="center">Notes</h1>
+
+    <!--Deleting Note-->
+    <ul class="list-group list-group-flush" id="notes">
+      {% for note in user.notes %}
+      <li class="list-group-item">
+        {{ note.data }}
+        <button type="button" class="close" onClick="deleteNote({{note.id}})">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </li>
+      {% endfor %}
+    </ul>
+
+    <!--Adding Note-->
+    <form method="POST">
+      <textarea name="note" id="note" class="form-control"></textarea>
+      <br />
+      <div align="center">
+        <button type="submit" class="btn btn-primary">Add Note</button>
+      </div>
+      <br/>
+    </form>
+
+
+  <h1 align="center">Your Portfolio</h1>
+  <!--Adding Stock-->
   <form method="POST">
-    <textarea name="note" id="note" class="form-control"></textarea>
-    <br />
-    <div align="center">
-      <button type="submit" class="btn btn-primary">Add Note</button>
-    </div>
-  </form>
-=======
-<h1 align="center">Your Portfolio</h1>
-<!--
-<ul class="list-group list-group-flush" id="notes">
-  {% for note in user.notes %}
-  <li class="list-group-item">
-    {{ note.data }}
-    <button type="button" class="close" onClick="deleteNote({{ note.id }})">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </li>
-  {% endfor %}
-</ul>
-<form method="POST">
-  <textarea name="note" id="note" class="form-control"></textarea>
-  <br />
-  <div align="center">
-    <button type="submit" class="btn btn-primary">Add Note</button>
+    <!-- 
+      <div class="form-group mx-sm-3 mb-2">
+      <input type="text" class="form-control" id="asset" placeholder="BTC, ETH" name = "asset">
+    </div> 
+    <textarea name="asset" id="asset" class="form-control"></textarea>
+    -->
+  <div class="form-group">
+    <label for="asset">Asset</label>
+    <input
+      type="text"
+      class="form-control"
+      id="asset"
+      name="asset"
+      placeholder="Enter asset"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="asset_type">Asset Type</label>
+    <input
+      type="text"
+      class="form-control"
+      id="asset_type"
+      name="asset_type"
+      placeholder="Enter asset"
+    />
+  </div>  
+
+  <div class="form-group">
+    <label for="bought">Bought For</label>
+    <input
+      type="integer"
+      class="form-control"
+      id="bought"
+      name="bought"
+      placeholder="Enter Price Bought For"
+    />
+  </div>
+  <div class="form-group">
+    <label for="quantity">Quantity</label>
+    <input
+      type="text"
+      class="form-control"
+      id="quantity"
+      name="quantity"
+      placeholder="Enter number of assets"
+    />
+  </div>
+  <div class="form-group">
+    <label for="date_bought">Date Bought</label>
+    <input
+      type="text"
+      class="form-control"
+      id="date_bought"
+      name="date_bought"
+      placeholder="Date Purchased"
+    />
+    
+  </div>
+  <div align="center"> 
+    <button type="submit" class="btn btn-primary">Add to Portfolio</button>
   </div>
 </form>
--->
-<form class="form-inline" method="POST">
-  <div class="form-group mb-2">
-    <input type="text" readonly class="form-control-plaintext" id="staticEmail2" value="Enter your asset" name = "notasde">
-  </div>
-  <div class="form-group mx-sm-3 mb-2">
-    <input type="text" class="form-control" id="searchAsset" placeholder="BTC, ETH" name = "note">
-  </div>
-  <button type="submit" class="btn btn-primary">Search</button>
-</form>
->>>>>>> Stashed changes
 {% endblock %}
