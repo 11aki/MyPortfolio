@@ -16,9 +16,17 @@ class User(db.Model, UserMixin):
     password = db.Column(db.String(150))
     first_name = db.Column(db.String(150))
     notes = db.relationship('Note')
+    portf = db.relationship('Portfolio')
 
 
-class portf(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
+class Portfolio(db.Model):
+    id = db.Column(db.Integer, primary_key=True) #needs to be here
     asset = db.Column(db.String(10000))
-    typeofas = db.Column(db.String(1000)) 
+    asset_type = db.Column(db.String(10000)) 
+    bought = db.Column(db.Float)
+    quantity = db.Column(db.Integer)
+    date_bought = db.Column(db.String(10000))
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    
+
+
