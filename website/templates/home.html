@@ -25,8 +25,23 @@
       <br/>
     </form>
 
+<!-- ############################################################### -->
 
   <h1 align="center">Your Portfolio</h1>
+  <ul class="list-group list-group-flush" id="portf">
+    {% for portfolio in user.portf %}
+    <li class="list-group-item">
+      {{ portfolio.asset }}
+      {{ portfolio.bought }}
+      {{ portfolio.asset_type}}
+      
+      <button type="button" class="close" onClick="deleteAsset({{portfolio.id}})">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </li>
+    {% endfor %}
+  </ul>
+
   <!--Adding Stock-->
   <form method="POST">
     <!-- 
@@ -35,6 +50,7 @@
     </div> 
     <textarea name="asset" id="asset" class="form-control"></textarea>
     -->
+  <br/>  
   <div class="form-group">
     <label for="asset">Asset</label>
     <input
