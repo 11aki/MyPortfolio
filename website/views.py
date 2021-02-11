@@ -40,9 +40,9 @@ def add_asset():
         print("-------------------------")
 
         if len(asset) < 1:
-                flash('Asset is too short!', category=error)
+                flash('Asset is too short!', category='error')
         else:
-                newass = Portfolio(asset=asset, asset_type=asset_type, bought=bought, quantity=quantity, date_bought=date_bought, user_id=current_user.id)
+                newass = Portfolio(asset=asset, asset_type="Stock", bought=bought, quantity=quantity, date_bought=date_bought, user_id=current_user.id)
                 db.session.add(newass)
                 db.session.commit()
 
