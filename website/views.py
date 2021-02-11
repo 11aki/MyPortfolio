@@ -30,7 +30,7 @@ def home():
 def add_asset():
 
     if request.method == 'POST':
-        
+
         asset = request.form.get('asset')
         asset_type = request.form.get('asset_type')
         bought = request.form.get('bought')
@@ -58,6 +58,19 @@ def delete_note():
     if note:
         if note.user_id == current_user.id:
             db.session.delete(note)
+            db.session.commit()
+
+    return jsonify({})
+    
+@views.route('/delete-asset', methods=['POST'])
+def delete_asset():
+    portfolio = json.loads(request.data)
+    portfolioId = portfolio['portfolioId']
+    portfolio = Portfolio.query.get(portfolioId)
+
+    if portfolio:
+        if portfolio.user_id == current_user.id:
+            db.session.delete(portfolio)
             db.session.commit()
 
     return jsonify({})
