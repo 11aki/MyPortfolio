@@ -28,10 +28,6 @@ def home():
 @views.route('/', methods=['GET', 'POST'])
 def add_asset():
 
-    for ass in current_user.portf:
-        print(ass.asset)
-        print(currentPrice(ass.asset,ass.asset_type))
-
     if request.method == 'POST':
 
         asset = request.form.get('asset')

@@ -1,7 +1,5 @@
 
 import yfinance as yf
-import cryptocompare
-from prettyprinter import pprint
 import requests
 
 from requests import Request, Session
@@ -47,4 +45,3 @@ def currentPrice(ticker,atype='Stock'):
         
 
 
-print(currentPrice('msft','Stock'))
