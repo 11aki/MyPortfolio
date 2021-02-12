@@ -25,7 +25,7 @@ def currentPrice(ticker,atype='Stock'):
       url = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest'
       parameters = {
         'start':'1',
-        'limit':'50',
+        'limit':'500',
         'convert':'USD'
       }
       headers = {
@@ -47,6 +47,9 @@ def currentPrice(ticker,atype='Stock'):
         
 
 
-#print(currentPrice('DOGE'))
+print(currentPrice('msft','Stock'))
 
+apple= yf.Ticker("")
 
+# show actions (dividends, splits)
+apple.actions

@@ -1,9 +1,7 @@
 {% extends "base.html" %} {% block title %}Home{% endblock %} {% block content
 %}
     <br/>
-    <h1 align="center">Notes</h1>
-
-    <!--Deleting Note-->
+    <!--Deleting Note
     <ul class="list-group list-group-flush" id="notes">
       {% for note in user.portf%}
       <li class="list-group-item">
@@ -16,7 +14,7 @@
     </ul>
     
     
-    <!--Adding Note-->
+    Adding Note
     <form method="POST">
       <textarea name="note" id="note" class="form-control"></textarea>
       <br />
@@ -25,10 +23,11 @@
       </div>
       <br/>
     </form>
-
+  -->
 <!-- ############################################################### -->
 
   <h1 align="center">Your Portfolio</h1>
+  <!--
   <ul class="list-group list-group-flush" id="portf">
     {% for portfolio in user.portf %}
     <li class="list-group-item">
@@ -42,7 +41,7 @@
     </li>
     {% endfor %}
   </ul>
-
+-->
   <!--Adding Stock-->
 
 <div id="accordion">
@@ -53,11 +52,14 @@
         <button class="btn btn-link" data-toggle="collapse" data-target="#{{note.asset}}" aria-expanded="true" aria-controls="{{note.asset}}">
         {{ note.asset}}
         </button>
+      <button type="button" class="close" onClick="deleteAsset({{note.id}})">
+        <span aria-hidden="true">&times;</span>
+      </button>
       </h5>
     </div>
-    <div id="{{note.asset}}" class="collapse show" aria-labelledby="{{note.asset_type}}" data-parent="#accordion">
+    <div id="{{note.asset}}" class="collapse hide" aria-labelledby="{{note.asset_type}}" data-parent="#accordion">
       <div class="card-body">
-        <img src="static/{{note.asset}}.png" alt="">{{note.asset}}
+        <img src="static/{{note.asset}}.png" width="50%" height="50%">{{note.asset}}
       </div>
     </div>
   </div>
@@ -71,68 +73,50 @@
     <textarea name="asset" id="asset" class="form-control"></textarea>
     -->
   <br/>  
-  <div class="form-group">
-    <label for="asset">Asset</label>
-    <br>
-    <!--
-    <link href="css/bootstrap-toggle.min.css" rel="stylesheet">
-  <script src="js/bootstrap-toggle.min.js"></script>
-    -->
-  <input type="checkbox" checked data-toggle="toggle" text = "Stock">
-    <input
-      type="text"
-      class="form-control"
-      id="asset"
-      name="asset"
-      placeholder="Enter asset"
-    />
-  </div>
+</form>
 
-  <div class="form-group">
-    <label for="asset_type">Asset Type</label>
-  </div>  
+<form method="POST">
+  <div class="form-row">
+    <div class="col">
+      <input type="text" class="form-control" placeholder="Asset Name" name = "asset">
+    </div>
+    &emsp;
+    <div class="col">
+      <input type="text" class="form-control" placeholder="Price Bought" name = "bought">
+    </div>
+    &emsp;
+    <div class="col">
+      <input type="text" class="form-control" placeholder="Quantity" name="quantity">
+    </div>
+    &emsp;
+    <div class="col">
+      <input type="text" class="form-control" placeholder="Date Bought" name = "date_bought">
+    </div>
+    &emsp;
+    &emsp;
   <div class="ext" style="display:flex;column-gap: 20px;">
       Stock   
     <label class="switch">
-      <input type="checkbox">
+      <input type="checkbox" name="assetType">
       <div class="slider"></div>
     </label>
     Crypto
+    &emsp;
   </div>
-
-  <div class="form-group">
-    <label for="bought">Bought For</label>
-    <input
-      type="integer"
-      class="form-control"
-      id="bought"
-      name="bought"
-      placeholder="Enter Price Bought For"
-    />
-  </div>
-  <div class="form-group">
-    <label for="quantity">Quantity</label>
-    <input
-      type="text"
-      class="form-control"
-      id="quantity"
-      name="quantity"
-      placeholder="Enter number of assets"
-    />
-  </div>
-  <div class="form-group">
-    <label for="date_bought">Date Bought</label>
-    <input
-      type="text"
-      class="form-control"
-      id="date_bought"
-      name="date_bought"
-      placeholder="Date Purchased"
-    />
-    
-  </div>
-  <div align="center"> 
-    <button type="submit" class="btn btn-primary">Add to Portfolio</button>
-  </div>
+  <br>
+  <br>
 </form>
+<div class="form-col" > 
+  <button type="submit" class="btn btn-primary">Add to Portfolio</button>
+</div>
+<br>
+&emsp;
+<br>
+<br/>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 {% endblock %}
