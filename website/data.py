@@ -48,8 +48,3 @@ def currentPrice(ticker,atype='Stock'):
 
 
 print(currentPrice('msft','Stock'))
-
-apple= yf.Ticker("")
-
-# show actions (dividends, splits)
-apple.actions

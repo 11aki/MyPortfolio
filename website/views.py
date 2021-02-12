@@ -14,9 +14,6 @@ views = Blueprint('views', __name__)
 def home():
     if request.method == 'POST':
         note = request.form.get('note')
-
-        print("-------------------------")
-
         if len(note) < 1:
             flash('Note is too short!', category='error')
         else:
@@ -39,7 +36,7 @@ def add_asset():
 
         asset = request.form.get('asset')
         asset_type = request.form.get('assetType')
-        if(asset_type == 'on' ):
+        if(asset_type == 'on'):
             asset_type = 'Crypto'
         else:
             asset_type = 'Stock'
