@@ -6,6 +6,11 @@ from requests import Request, Session
 from requests.exceptions import ConnectionError, Timeout, TooManyRedirects
 import json
 
+import mplfinance as fplt
+import pandas as pd
+from pandas_datareader import data as web
+from dateutil import parser
+from datetime import datetime
 
 #Check if the symbol exists and return a price if it does
 #atype is whether it is a stock or crypto
@@ -45,3 +50,34 @@ def currentPrice(ticker,atype='Stock'):
         
 
 
+
+
+def historicalChart(assetname,startdate,atype):
+    plotdata = 0
+    if atype == 'Stock':
+      try:
+        df = web.DataReader(assetname, data_source='yahoo', start=startdate)
+        df.to_csv('stock.csv')
+        plotdata = pd.read_csv('stock.csv',index_col=0,parse_dates=True)
+        fplt.plot(
+                plotdata,
+                type='candle',
+                ylabel='Price ($)',
+                savefig = '/static/%s.png' % assetname
+            )
+      except:
+        print("error in stock")
+
+    #crypto
+    else:
+      try:
+          print("its ETHcrypto")
+          plotdata = pd.read_csv('.../%s.csv' % assetname, index_col=0, parse_dates=True)
+          fplt.plot(
+                  plotdata,
+                  type='candle',
+                  ylabel='Price ($)',
+                  savefig = '/static/new%s.png' % assetname
+              )
+      except:
+        print("error")

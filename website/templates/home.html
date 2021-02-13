@@ -45,12 +45,12 @@
   <!--Adding Stock-->
 
 <div id="accordion">
-{% for note,currprice in zip(user.portf,price)%}
+{% for note in user.portf%}
   <div class="card">
     <div class="card-header" id="{{note.asset_type}}">
       <h5 class="mb-0">
         <button class="btn btn-link" data-toggle="collapse" data-target="#{{note.asset}}" aria-expanded="true" aria-controls="{{note.asset}}">
-        {{note.asset, currprice }}
+        {{note.asset }}
         </button>
       <button type="button" class="close" onClick="deleteAsset({{note.id}})">
         <span aria-hidden="true">&times;</span>
