@@ -9,24 +9,14 @@ import json
 views = Blueprint('views', __name__)
 
 
-@views.route('/home', methods=['GET', 'POST'])
-@login_required
-def home():
-    if request.method == 'POST':
-        note = request.form.get('note')
-        if len(note) < 1:
-            flash('Note is too short!', category='error')
-        else:
-            
-            newnote = Note(data=note, user_id=current_user.id)
-            db.session.add(newnote)
-            db.session.commit()
-            flash('Note added!', category='success')
-
-    return render_template("home.html", user=current_user)
-
 @views.route('/', methods=['GET', 'POST'])
 def add_asset():
+
+    cPrice = []
+    for ass in current_user.portf:
+        cPrice.append(currentPrice(ass.asset,ass.asset_type))
+
+    print("the thing is",cPrice)
 
     if request.method == 'POST':
 
@@ -49,8 +39,8 @@ def add_asset():
                 db.session.add(newass)
                 db.session.commit()
 
-    return render_template("home.html", user=current_user)            
 
+    return render_template("home.html", user=current_user,price = cPrice)            
 
 
 @views.route('/delete-note', methods=['POST'])
