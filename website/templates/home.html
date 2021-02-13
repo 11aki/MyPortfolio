@@ -61,6 +61,8 @@
       <h5 class="mb-0">
         <button class="btn btn-link" data-toggle="collapse" data-target="#{{note.asset}}" aria-expanded="true" aria-controls="{{note.asset}}">
         {{ note.asset}}
+        ||
+        {{ currentPrice(note.asset, note.asset_type) }}
         </button>
       <button type="button" class="close" onClick="deleteAsset({{note.id}})">
         <span aria-hidden="true">&times;</span>
@@ -70,7 +72,12 @@
     <div id="{{note.asset}}" class="collapse hide" aria-labelledby="{{note.asset_type}}" data-parent="#accordion">
       <div class="card-body">
         <img src="static/{{note.asset}}.png" width="50%" height="50%">{{note.asset}}
-        
+        ||
+        Quantity: {{ note.quantity }}
+        ||
+        Bought For: {{ note.bought }}
+        ||
+        Date Bought: {{ note.date_bought }}
       </div>
     </div>
   </div>
@@ -103,7 +110,7 @@
     <div class="form-group row">
       <label for="date-input" class="col-2 col-form-label">Date</label>
       <div class="col-10">
-        <input class="form-control" type="date" value="YYYY-MM-DD" id="date-input">
+        <input class="form-control" type="date" placeholder="Date" value="DD-MM-YYYY" name="date_bought">
       </div>
     </div>
     <!-- <div class="col">
@@ -112,7 +119,7 @@
     &emsp;
     &emsp;
   <div class="ext" style="display:flex;column-gap: 20px;">
-      Stock   
+    Stock   
     <label class="switch">
       <input type="checkbox" name="assetType">
       <div class="slider"></div>
@@ -136,7 +143,6 @@
 <br>
 <br>
 <br>
-<<<<<<< HEAD
 
 
 
@@ -318,6 +324,4 @@
 	</div>
        
 
-=======
->>>>>>> parent of 88563b9... minor changes
 {% endblock %}
