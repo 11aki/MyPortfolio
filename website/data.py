@@ -42,6 +42,3 @@ def currentPrice(ticker,atype='Stock'):
               return(item['quote']['USD']['price'])
       except (ConnectionError, Timeout, TooManyRedirects) as e:
         return(e)
-        
-
-

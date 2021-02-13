@@ -31,6 +31,11 @@ def create_app():
     def load_user(id):
         return User.query.get(int(id))
 
+
+    from .data import currentPrice   
+
+    app.jinja_env.globals.update(currentPrice=currentPrice)    
+
     return app
 
 
