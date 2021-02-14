@@ -2,7 +2,7 @@ from flask import Blueprint, render_template, request, flash, jsonify
 from flask_login import login_required, current_user
 from .models import Note, Portfolio
 from . import db
-from .data import currentPrice  
+from .data import currentPrice,historicalChart
 
 import json
 
@@ -14,7 +14,12 @@ views = Blueprint('views', __name__)
 def add_asset():
 
 
+
+
     if request.method == 'POST':
+        for ass in current_user.portf:
+            historicalChart(ass.asset,'11-11-2020',ass.asset_type)
+
 
         asset = request.form.get('asset')
         asset_type = request.form.get('assetType')
