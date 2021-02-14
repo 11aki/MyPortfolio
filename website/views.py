@@ -14,7 +14,7 @@ views = Blueprint('views', __name__)
 def add_asset():
 
     for ass in current_user.portf:
-        historicalChart(ass.asset,'11-11-2020',ass.asset_type)
+        historicalChart(ass.asset,ass.date_bought,ass.asset_type)
 
 
     if request.method == 'POST':
