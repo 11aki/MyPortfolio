@@ -13,6 +13,7 @@ views = Blueprint('views', __name__)
 @views.route('/', methods=['GET', 'POST'])
 def add_asset():
 
+
     if request.method == 'POST':
 
         asset = request.form.get('asset')
