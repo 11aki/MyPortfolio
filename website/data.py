@@ -59,7 +59,7 @@ def historicalChart(assetname,startdate,atype):
     #crypto
     else:
         print("its ETHcrypto")
-        plotdata = pd.read_csv('website/static/BTC.csv', index_col=0, parse_dates=True)
+        plotdata = pd.read_csv('ETH.csv', index_col=0, parse_dates=True)
     fplt.plot(
                 plotdata,
                 type='candle',

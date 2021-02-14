@@ -13,12 +13,11 @@ views = Blueprint('views', __name__)
 @views.route('/', methods=['GET', 'POST'])
 def add_asset():
 
-
+    for ass in current_user.portf:
+        historicalChart(ass.asset,'11-11-2020',ass.asset_type)
 
 
     if request.method == 'POST':
-        for ass in current_user.portf:
-            historicalChart(ass.asset,'11-11-2020',ass.asset_type)
 
 
         asset = request.form.get('asset')
