@@ -16,8 +16,6 @@ pip install -r requirements.txt
 
 ```bash
 python main.py
-and head to 
-[http://127.0.0.1:5000/sign-up](http://127.0.0.1:5000/sign-up)
 ```
 
 ## Viewing The App
