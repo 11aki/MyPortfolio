@@ -21,3 +21,15 @@ python main.py
 ## Viewing The App
 
 Go to `http://127.0.0.1:5000/sign-up`
+
+
+## Authors
+
+
+**Akshit Amin** -  - [11aki](https://github.com/11aki)
+
+**Mihir Puranik** -  - [Mehere87](https://github.com/mehere87)
+
+**Sylvia Lim** -  - [MEINx](https://github.com/MEINx)
+
+
