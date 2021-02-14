@@ -2,3 +2,6 @@ flask
 Flask-SQLAlchemy
 flask-login
 yfinance
+mplfinance
+pandas_datareader
+pandas

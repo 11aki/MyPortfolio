@@ -35,7 +35,6 @@ def create_app():
     from .data import currentPrice   
 
     app.jinja_env.globals.update(currentPrice=currentPrice)    
-
     return app
 
 

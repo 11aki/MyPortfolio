@@ -5,7 +5,7 @@ import requests
 from requests import Request, Session
 from requests.exceptions import ConnectionError, Timeout, TooManyRedirects
 import json
-
+import os
 import mplfinance as fplt
 import matplotlib.pyplot as plt
 plt.switch_backend('agg')
@@ -54,19 +54,21 @@ def currentPrice(ticker,atype='Stock'):
 
 
 def historicalChart(assetname,startdate,atype):
-    plotdata = pd.read_csv('BTC.csv', index_col=0, parse_dates=True)
-    if atype == 'Stock':
-        df = web.DataReader(assetname, data_source='yahoo', start=startdate)
-        df.to_csv('stock.csv' )
-        plotdata = pd.read_csv('stock.csv',index_col=0,parse_dates=True)
-        print("ots a stock")
-    #crypto
-    else:
-        print("its ETHcrypto")
-        plotdata = pd.read_csv('ETH.csv', index_col=0, parse_dates=True)
-    fplt.plot(
-                plotdata,
-                type='candle',
-                ylabel='Price ($)',
-                savefig = 'website/static/%s.png' % assetname
-            )
+    if not os.path.isfile('website/static/%s.png' %assetname):
+      print("here")
+      plotdata = pd.read_csv('BTC.csv', index_col=0, parse_dates=True)
+      if atype == 'Stock':
+          df = web.DataReader(assetname, data_source='yahoo', start=startdate)
+          df.to_csv('stock.csv' )
+          plotdata = pd.read_csv('stock.csv',index_col=0,parse_dates=True)
+          print("ots a stock")
+      #crypto
+      else:
+          print("its ETHcrypto")
+          plotdata = pd.read_csv('%s.csv'%assetname, index_col=0, parse_dates=True)
+      fplt.plot(
+                  plotdata,
+                  type='candle',
+                  ylabel='Price ($)',
+                  savefig = 'website/static/%s.png' % assetname
+              )
