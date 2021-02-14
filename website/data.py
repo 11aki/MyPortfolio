@@ -50,34 +50,19 @@ def currentPrice(ticker,atype='Stock'):
         
 
 
-
-
 def historicalChart(assetname,startdate,atype):
-    plotdata = 0
+    plotdata = pd.read_csv('ETH.csv', index_col=0, parse_dates=True)
     if atype == 'Stock':
-      try:
         df = web.DataReader(assetname, data_source='yahoo', start=startdate)
         df.to_csv('stock.csv')
         plotdata = pd.read_csv('stock.csv',index_col=0,parse_dates=True)
-        fplt.plot(
+    #crypto
+    else:
+        print("its ETHcrypto")
+        plotdata = pd.read_csv('website/static/BTC.csv', index_col=0, parse_dates=True)
+    fplt.plot(
                 plotdata,
                 type='candle',
                 ylabel='Price ($)',
-                savefig = '/static/%s.png' % assetname
+                savefig = 'website/static/%s.png' % assetname
             )
-      except:
-        print("error in stock")
-
-    #crypto
-    else:
-      try:
-          print("its ETHcrypto")
-          plotdata = pd.read_csv('.../%s.csv' % assetname, index_col=0, parse_dates=True)
-          fplt.plot(
-                  plotdata,
-                  type='candle',
-                  ylabel='Price ($)',
-                  savefig = '/static/new%s.png' % assetname
-              )
-      except:
-        print("error")
