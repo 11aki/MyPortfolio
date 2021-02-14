@@ -56,6 +56,7 @@ def historicalChart(assetname,startdate,atype):
         df = web.DataReader(assetname, data_source='yahoo', start=startdate)
         df.to_csv('stock.csv')
         plotdata = pd.read_csv('stock.csv',index_col=0,parse_dates=True)
+        print("ots a stock")
     #crypto
     else:
         print("its ETHcrypto")
