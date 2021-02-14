@@ -13,13 +13,7 @@ views = Blueprint('views', __name__)
 @views.route('/', methods=['GET', 'POST'])
 def add_asset():
 
-    for ass in current_user.portf:
-        historicalChart(ass.asset,ass.date_bought,ass.asset_type)
-
-
     if request.method == 'POST':
-
-
         asset = request.form.get('asset')
         asset_type = request.form.get('assetType')
         if(asset_type == 'on'):
@@ -38,6 +32,8 @@ def add_asset():
                 db.session.add(newass)
                 db.session.commit()
 
+        for ass in current_user.portf:
+            historicalChart(ass.asset,ass.date_bought,ass.asset_type)
     return render_template("home.html", user=current_user)            
 
 
